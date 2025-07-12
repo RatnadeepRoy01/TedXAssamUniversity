@@ -1,10 +1,11 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {  Calendar, MapPin,  Mail, Phone, Facebook, Twitter, Instagram, Linkedin,  Clock,  Plus, Minus } from 'lucide-react';
-import HeroSection from './heroSection/heroSection';
+import HeroSection from './heroSection';
 import Image from 'next/image';
+import SpeakerPhotoGrid from './expandable-cards';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -75,7 +76,7 @@ const VideoOverlay: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
       {!error ? (
         <video
           ref={videoRef}
-          src="/intro.mp4"
+          src="https://ik.imagekit.io/ptcg0bvf3/TEDx/ted___intro_animation%20(720p)%20(1)%20(online-video-cutter.com)%20(1).mp4?updatedAt=1752327569691"
           style={{
             position: "absolute",
             inset: 0,
@@ -157,6 +158,7 @@ const TedxLanding: React.FC = () => {
   const faqRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
+  const heroSectionRef = useRef<HTMLDivElement>(null);
 
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   // const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -165,8 +167,8 @@ const TedxLanding: React.FC = () => {
   // const [activeTimelineItem, setActiveTimelineItem] = useState<number | null>(null);
   const [cursorVariant, setCursorVariant] = useState('default');
   const [showMain, setShowMain] = useState(false);
-
-  const eventDate = new Date('2024-12-15T09:00:00');
+  
+  const eventDate = useMemo(() => new Date('2024-12-15T09:00:00'), [])
 
   // const speakers = [
   //   { name: 'Dr. Priya Sharma', title: 'AI Research Scientist', image: '/api/placeholder/300/400', social: { linkedin: '#', twitter: '#' } },
@@ -283,28 +285,59 @@ const TedxLanding: React.FC = () => {
   }, [mousePosition]);
 
   useEffect(() => {
-    // Hero animations
-    const tl = gsap.timeline();
-    
-    tl.from(titleRef.current, {
-      duration: 1.5,
-      y: 100,
-      opacity: 0,
-      ease: "power3.out"
-    })
-    .from(subtitleRef.current, {
-      duration: 1,
-      y: 50,
-      opacity: 0,
-      ease: "power2.out"
-    }, "-=0.5")
-    .from(keywordRef.current, {
-      duration: 0.8,
-      scale: 0,
-      opacity: 0,
-      ease: "back.out(1.7)"
-    }, "-=0.3");
+    if (!showMain) return;
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      // Disable all GSAP/ScrollTrigger animations on mobile
+      return;
+    }
+    let ctx: gsap.Context | undefined;
+    if (typeof window !== 'undefined') {
+      ctx = gsap.context(() => {
+        ScrollTrigger.create({
+          trigger: heroSectionRef.current,
+          start: 'top 80%',
+          once: true,
+          onEnter: () => {
+            const tl = gsap.timeline();
+            tl.from(titleRef.current, {
+              duration: 1.5,
+              y: 100,
+              opacity: 0,
+              ease: 'power3.out',
+            })
+              .from(
+                subtitleRef.current,
+                {
+                  duration: 1,
+                  y: 50,
+                  opacity: 0,
+                  ease: 'power2.out',
+                },
+                '-=0.5'
+              )
+              .from(
+                keywordRef.current,
+                {
+                  duration: 0.8,
+                  scale: 0,
+                  opacity: 0,
+                  ease: 'back.out(1.7)',
+                },
+                '-=0.3'
+              );
+          },
+        });
+      }, heroSectionRef);
+    }
+    return () => ctx && ctx.revert();
+  }, [showMain]);
 
+  useEffect(() => {
+    if (!showMain) return;
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      // Disable all GSAP/ScrollTrigger animations on mobile
+      return;
+    }
     // Floating scroll indicator
     gsap.to(scrollIndicatorRef.current, {
       y: 20,
@@ -338,19 +371,40 @@ const TedxLanding: React.FC = () => {
       }
     });
 
-    ScrollTrigger.create({
-      trigger: aboutRef.current,
-      start: "top 70%",
-      onEnter: () => {
-        gsap.from(aboutRef.current && aboutRef.current?.children, {
-          duration: 1.2,
-          y: 80,
-          opacity: 0,
-          stagger: 0.2,
-          ease: "power2.out"
-        });
-      }
-    });
+    // About Section: Text from left, image from right (and alternate)
+    if (aboutRef.current) {
+      const aboutChildren = aboutRef.current.querySelectorAll('.about-row');
+      aboutChildren.forEach((row: Element, idx: number) => {
+        const text = row.querySelector('.about-text');
+        const img = row.querySelector('.about-img');
+        if (text) {
+          gsap.from(text, {
+            x: idx % 2 === 0 ? -120 : 120,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 80%',
+              once: true,
+            },
+          });
+        }
+        if (img) {
+          gsap.from(img, {
+            x: idx % 2 === 0 ? 120 : -120,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 80%',
+              once: true,
+            },
+          });
+        }
+      });
+    }
 
     ScrollTrigger.create({
       trigger: speakersRef.current,
@@ -365,20 +419,6 @@ const TedxLanding: React.FC = () => {
         });
       }
     });
-
-    // ScrollTrigger.create({
-    //   trigger: timelineRef.current,
-    //   start: "top 70%",
-    //   onEnter: () => {
-    //     gsap.from(timelineRef.current && timelineRef.current?.querySelectorAll('.timeline-item'), {
-    //       duration: 1,
-    //       x: 100,
-    //       opacity: 0,
-    //       stagger: 0.15,
-    //       ease: "power2.out"
-    //     });
-    //   }
-    // });
 
     ScrollTrigger.create({
       trigger: timelineRef.current,
@@ -457,7 +497,7 @@ const TedxLanding: React.FC = () => {
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, []);
+  }, [showMain]);
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
@@ -472,7 +512,7 @@ const TedxLanding: React.FC = () => {
     <>
       {!showMain && <VideoOverlay onFinish={handleVideoFinish} />}
       {showMain && (
-        <div className="bg-black text-white overflow-hidden relative">
+        <div className="bg-[#1c1c1c] text-white overflow-hidden relative">
           {/* Custom Cursor */}
           <div
             ref={cursorRef}
@@ -486,15 +526,17 @@ const TedxLanding: React.FC = () => {
           />
 
           {/* Hero Section */}
+          <div ref={heroSectionRef}>
             <HeroSection setCursorVariant={setCursorVariant} />
+          </div>
 
           {/* Countdown Timer */}
-          <section ref={countdownRef} className="py-20 bg-black qw">
+          <section ref={countdownRef} className="py-20 bg-[#1c1c1c] qw">
             <div className="container mx-auto px-4 text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-12 text-red-500">Event Countdown</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                 {Object.entries(timeLeft).map(([unit, value]) => (
-                  <div key={unit} className="bg-black p-8 rounded-lg border border-red-500/30 hover:border-red-500 transition-colors">
+                  <div key={unit} className="bg-[#1c1c1c] p-8 rounded-lg border border-red-500/30 hover:border-red-500 transition-colors">
                     <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">{value}</div>
                     <div className="text-gray-300 uppercase tracking-wide">{unit}</div>
                   </div>
@@ -503,11 +545,11 @@ const TedxLanding: React.FC = () => {
             </div>
           </section>
 
-    <section ref={aboutRef} className="py-20 bg-black">
+    <section ref={aboutRef} className="py-20 bg-[#1c1c1c]">
       <div className="container mx-auto md:px-24 px-4">
         {/* Section 1: Text Left, Image Right */}
-        <div className="grid md:grid-cols-2 gap-12 items-center md:mb-24 mb-12">
-          <div>
+        <div className="grid md:grid-cols-2 gap-12 items-center md:mb-24 mb-12 about-row">
+          <div className="about-text">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-red-500"
               onMouseEnter={() => setCursorVariant('hover')}
               onMouseLeave={() => setCursorVariant('default')}
@@ -542,7 +584,7 @@ const TedxLanding: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative about-img">
             <Image
               src="https://www.jconline.com/gcdn/-mm-/4c04e1f05f3ce3c71fe2015bd223778ae372279e/c=0-255-4896-3009/local/-/media/LafayetteIN/2014/11/22/B9315214526Z.1_20141122180250_000+GP89745S0.1-0.jpg?width=3200&height=1800&fit=crop&format=pjpg&auto=webp"
               alt="TEDx Event"
@@ -557,8 +599,8 @@ const TedxLanding: React.FC = () => {
         </div>
 
         {/* Section 2: Image Left, Text Right */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative order-2 md:order-1 md:mb-24">
+        <div className="grid md:grid-cols-2 gap-12 items-center about-row">
+          <div className="relative order-2 md:order-1 md:mb-24 about-img">
             <Image
               src="https://communityrights.us/wp-content/uploads/2019/11/Ted-X.jpg"
               alt="Community Impact"
@@ -569,7 +611,7 @@ const TedxLanding: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
           </div>
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 about-text">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-red-500"
               onMouseEnter={() => setCursorVariant('hover')}
               onMouseLeave={() => setCursorVariant('default')}
@@ -607,8 +649,8 @@ const TedxLanding: React.FC = () => {
 
         {/* Section 3: Only show on md and up using React, not CSS */}
         {isMdUp && (
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-24 ">
-            <div>
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-24 about-row">
+            <div className="about-text">
               <h2
                 className="text-4xl md:text-5xl font-bold mb-8 text-red-500"
                 onMouseEnter={() => setCursorVariant('hover')}
@@ -631,7 +673,7 @@ const TedxLanding: React.FC = () => {
                 From grassroots changemakers to student visionaries, our stage amplifies voices that inspire impact and innovation.
               </p>
             </div>
-            <div className="relative">
+            <div className="relative about-img">
             <Image
                 src="https://tse4.mm.bing.net/th/id/OIP.ojJ1dK8erH7KyGmIfWfbKwHaE8?pid=Api&P=0&h=180"
                 alt="Speaker at TEDx Assam University"
@@ -650,13 +692,13 @@ const TedxLanding: React.FC = () => {
 
 
         {/* Speakers Showcase */}
-        <section ref={speakersRef} className="py-24 bg-black qw">
+        <section ref={speakersRef} className="py-24 bg-[#1c1c1c] qw">
           <div className="container mx-auto md:px-24 px-4 flex justify-center">
             {/* <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-red-500">Our Speakers</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {speakers.map((speaker, index) => (
                 <div key={index} className="speaker-card group">
-                  <div className="bg-black rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-300 transform hover:scale-105">
+                  <div className="bg-[#1c1c1c] rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-300 transform hover:scale-105">
                     <div className="relative overflow-hidden">
                       <img 
                         src={speaker.image} 
@@ -697,7 +739,7 @@ const TedxLanding: React.FC = () => {
 
 
 
-    <section ref={timelineRef} className="py-20 bg-black">
+    <section ref={timelineRef} className="py-20 bg-[#1c1c1c]">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-red-500"
           onMouseEnter={() => setCursorVariant('hover')}
@@ -734,7 +776,7 @@ const TedxLanding: React.FC = () => {
     </section>
 
     {/* Gallery */}
-    {/* <section ref={galleryRef} className="py-20 bg-black qw">
+    {/* <section ref={galleryRef} className="py-20 bg-[#1c1c1c] qw">
       <div className="container mx-auto md:px-24 px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-red-500">Gallery</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -755,7 +797,7 @@ const TedxLanding: React.FC = () => {
     </section> */}
 
     {/* Testimonials */}
-    {/* <section ref={testimonialsRef} className="py-20 bg-black">
+    {/* <section ref={testimonialsRef} className="py-20 bg-[#1c1c1c]">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-red-500"
           onMouseEnter={() => setCursorVariant('hover')}
@@ -766,7 +808,7 @@ const TedxLanding: React.FC = () => {
             <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-8">
-                  <div className="bg-black qw p-8 rounded-lg border border-gray-800 text-center">
+                  <div className="bg-[#1c1c1c] qw p-8 rounded-lg border border-gray-800 text-center">
                     <div className="flex justify-center mb-6">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Star key={i} className="w-6 h-6 text-red-500 fill-current" />
@@ -798,7 +840,7 @@ const TedxLanding: React.FC = () => {
     </section> */}
 
     {/* CTA Section */}
-    <section ref={ctaRef} className="py-20 bg-black">
+    <section ref={ctaRef} className="py-20 bg-red-600">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-6xl font-bold mb-8"
           onMouseEnter={() => setCursorVariant('hover')}
@@ -830,8 +872,10 @@ const TedxLanding: React.FC = () => {
       </div>
     </section>
 
+    <SpeakerPhotoGrid/>
+
     {/* FAQ Section */}
-    <section ref={faqRef} className="py-20 bg-black">
+    <section ref={faqRef} className="py-20 bg-[#1c1c1c]">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-red-500"
           onMouseEnter={() => setCursorVariant('hover')}
@@ -842,7 +886,7 @@ const TedxLanding: React.FC = () => {
             <div key={index} className="faq-item mb-4">
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full text-left p-6 bg-black qw hover:bg-gray-800 rounded-lg border border-gray-800 hover:border-red-500 transition-colors flex justify-between items-center"
+                className="w-full text-left p-6 bg-[#1c1c1c] qw hover:bg-gray-800 rounded-lg border border-gray-800 hover:border-red-500 transition-colors flex justify-between items-center"
               >
                 <span className="text-xl font-semibold text-white"
                   onMouseEnter={() => setCursorVariant('hover')}
