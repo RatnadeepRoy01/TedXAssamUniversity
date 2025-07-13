@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "TEDx Assam University",
+  icons: {
+    icon: "/logo1.ico",
+  },
   description: "Official website for TEDx Assam University. Discover speakers, schedule, team, and more.",
 };
 
