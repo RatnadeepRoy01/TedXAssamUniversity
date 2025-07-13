@@ -19,6 +19,10 @@ const navigation = [
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
   const [aboutDropdownOpen, setAboutDropdownOpen] = React.useState(false)
+  const [aboutDropdownHover, setAboutDropdownHover] = React.useState(false)
+
+  // Dropdown is open if either hover or click is active
+  const aboutDropdownVisible = aboutDropdownOpen || aboutDropdownHover;
 
   return (
     <nav className="fixed top-0 z-50 w-full bg-black md:sticky text-white">
@@ -50,29 +54,52 @@ export function Navbar() {
               {navigation.map((item) => {
                 if (item.name === "About") {
                   return (
-                    <div key={item.name} className="relative group">
-                      <Link
-                        href={item.href}
-                        className="relative px-3 py-2 text-sm font-medium text-white transition-all duration-200 hover:text-red-600"
+                    <div
+                      key={item.name}
+                      className="relative group"
+                      onMouseEnter={() => setAboutDropdownHover(true)}
+                      onMouseLeave={() => setAboutDropdownHover(false)}
+                    >
+                      <button
+                        type="button"
+                        className="relative px-3 py-2 text-sm font-medium text-white transition-all duration-200 hover:text-red-600 focus:outline-none flex items-center gap-1"
+                        onClick={() => setAboutDropdownOpen((open) => !open)}
+                        aria-haspopup="true"
+                        aria-expanded={aboutDropdownVisible}
                       >
                         {item.name}
+                        <svg
+                          className={`w-4 h-4 ml-1 transition-transform duration-200 ${aboutDropdownVisible ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
                         <span className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-red-500/0 via-red-500/70 to-red-500/0 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
-                      </Link>
+                      </button>
                       {/* Dropdown */}
-                      <div className="absolute left-0 mt-2 min-w-[180px] bg-black text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-50">
-                        <Link
-                          href="/team"
-                          className="block px-4 py-3 hover:text-red-600 rounded-t-lg transition-colors"
-                        >
-                          TEDx Team
-                        </Link>
-                        <Link
-                          href="/about"
-                          className="block px-4 py-3 hover:text-red-600 rounded-b-lg transition-colors"
-                        >
-                          About Us
-                        </Link>
-                      </div>
+                      {aboutDropdownVisible && (
+                        <div className="absolute left-0 mt-2 min-w-[180px] bg-black text-white rounded-lg shadow-lg translate-y-0 pointer-events-auto transition-all duration-200 z-50 flex flex-col items-center pt-4 pb-2">        
+                          <div className="w-full">
+                            <Link
+                              href="/team"
+                              className="block px-4 py-3 hover:text-red-600 rounded-t-lg transition-colors"
+                              onClick={() => setAboutDropdownOpen(false)}
+                            >
+                              TEDx Team
+                            </Link>
+                            <Link
+                              href="/about"
+                              className="block px-4 py-3 hover:text-red-600 rounded-b-lg transition-colors"
+                              onClick={() => setAboutDropdownOpen(false)}
+                            >
+                              About Us
+                            </Link>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   );
                 }
@@ -92,9 +119,14 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSd43MK5bTGJjG1zFvTQZFwQyGdlMpgMXQltBeYClAyjkmawmw/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-block"
+            >
               Get Tickets
-            </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -184,9 +216,14 @@ export function Navbar() {
 
                   {/* Mobile CTA */}
                   <div className="border-t pt-6 flex justify-center">
-                    <Button className="mx-2 mb-4 w-[90%] bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-full transition-all duration-200">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSd43MK5bTGJjG1zFvTQZFwQyGdlMpgMXQltBeYClAyjkmawmw/viewform"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mx-2 mb-4 w-[90%] bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-full transition-all duration-200 text-center"
+                    >
                       Get Tickets
-                    </Button>
+                    </a>
                   </div>
                 </div>
               </SheetContent>

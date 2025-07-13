@@ -129,20 +129,6 @@ const VideoOverlay: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
   );
 };
 
-// Add this hook at the top level (outside the component)
-function useIsMdUp() {
-  const [isMdUp, setIsMdUp] = useState(false);
-  useEffect(() => {
-    function handleResize() {
-      setIsMdUp(window.innerWidth >= 768);
-    }
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  return isMdUp;
-}
-
 const TedxLanding: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -168,7 +154,7 @@ const TedxLanding: React.FC = () => {
   const [cursorVariant, setCursorVariant] = useState('default');
   const [showMain, setShowMain] = useState(false);
   
-  const eventDate = useMemo(() => new Date('2024-12-15T09:00:00'), [])
+  const eventDate = useMemo(() => new Date('2025-07-19T09:00:00'), [])
 
   // const speakers = [
   //   { name: 'Dr. Priya Sharma', title: 'AI Research Scientist', image: '/api/placeholder/300/400', social: { linkedin: '#', twitter: '#' } },
@@ -206,9 +192,9 @@ const TedxLanding: React.FC = () => {
     { question: 'What if I can\'t attend physically?', answer: 'We\'ll be live streaming the event. Registration links will be shared closer to the date.' }
   ];
 
-  const isMdUp = useIsMdUp();
-
   useEffect(() => {
+    if (!showMain) return; // Only start timer when main content is shown
+
     const updateCountdown = () => {
       const now = new Date().getTime();
       const distance = eventDate.getTime() - now;
@@ -226,7 +212,7 @@ const TedxLanding: React.FC = () => {
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, [eventDate]);
+  }, [eventDate, showMain]);
 
   // useEffect(() => {
   //   const keywordInterval = setInterval(() => {
@@ -646,47 +632,6 @@ const TedxLanding: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Section 3: Only show on md and up using React, not CSS */}
-        {isMdUp && (
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-24 about-row">
-            <div className="about-text">
-              <h2
-                className="text-4xl md:text-5xl font-bold mb-8 text-red-500"
-                onMouseEnter={() => setCursorVariant('hover')}
-                onMouseLeave={() => setCursorVariant('default')}
-              >
-                Igniting Ideas at Assam University
-              </h2>
-              <p
-                className="text-xl text-gray-300 mb-6 leading-relaxed"
-                onMouseEnter={() => setCursorVariant('hover')}
-                onMouseLeave={() => setCursorVariant('default')}
-              >
-                TEDx Assam University celebrates bold ideas and powerful stories from Northeast India — uniting minds, sparking conversations, and shaping tomorrow.
-              </p>
-              <p
-                className="text-xl text-gray-300 mb-6 leading-relaxed"
-                onMouseEnter={() => setCursorVariant('hover')}
-                onMouseLeave={() => setCursorVariant('default')}
-              >
-                From grassroots changemakers to student visionaries, our stage amplifies voices that inspire impact and innovation.
-              </p>
-            </div>
-            <div className="relative about-img">
-            <Image
-                src="https://tse4.mm.bing.net/th/id/OIP.ojJ1dK8erH7KyGmIfWfbKwHaE8?pid=Api&P=0&h=180"
-                alt="Speaker at TEDx Assam University"
-                className="rounded-lg shadow-2xl"
-                width={400}
-                height={267}
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
-            </div>
-          </div>
-        )}
-
       </div>
     </section>
 
@@ -852,9 +797,14 @@ const TedxLanding: React.FC = () => {
         >
          Don&apos;t miss this opportunity to be part of something extraordinary. Limited seats available!
         </p>
-        <button className="bg-white text-red-600 px-12 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSd43MK5bTGJjG1zFvTQZFwQyGdlMpgMXQltBeYClAyjkmawmw/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white text-red-600 px-12 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl inline-block"
+        >
           Book Tickets
-        </button>
+        </a>
         <div className="mt-12 flex justify-center items-center space-x-8 text-red-100">
           <div className="flex items-center">
             <Calendar className="w-6 h-6 mr-2" />

@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { CalendarDays, Mail, Phone, MapPin, Mic, Users, Music } from "lucide-react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 
 const highlights = [
@@ -134,7 +135,7 @@ export default function Schedule() {
         <div className="max-w-3xl mx-auto text-center px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Don’t Miss Out!</h2>
           <p className="text-xl text-red-100 mb-8">Be part of an unforgettable day of ideas, inspiration, and connection. Reserve your spot or reach out for more info.</p>
-          <a href="/contact" className="inline-block bg-white text-red-600 px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl">Contact Us</a>
+          <Link href="/contact" className="inline-block bg-white text-red-600 px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl">Contact Us</Link>
         </div>
       </section>
       {/* Footer (copied from About) */}
@@ -154,7 +155,7 @@ export default function Schedule() {
                 <li><a href="/about" className="hover:text-red-500 transition-colors">About</a></li>
                 <li><a href="/speakers" className="hover:text-red-500 transition-colors">Speakers</a></li>
                 <li><a href="/schedule" className="hover:text-red-500 transition-colors">Schedule</a></li>
-                <li><a href="/contact" className="hover:text-red-500 transition-colors">Contact</a></li>
+                <li><Link href="/contact" className="hover:text-red-500 transition-colors">Contact</Link></li>
               </ul>
             </div>
             <div>

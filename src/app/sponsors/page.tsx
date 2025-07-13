@@ -2,16 +2,57 @@
 import { Mail, Phone, MapPin, Star } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const sponsors = [
-  { name: "Adons", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/official%20logo%20of%20AdOns%20(1).jpg?updatedAt=1752328713850", url: "#" },
-  { name: "Adbark Threads", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/IMG-20250708-WA0004.jpg?updatedAt=1752328713825", url: "#" },
-  { name: "GPlus", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/Gplulogo.jpg?updatedAt=1752328695494", url: "#" },
-  { name: "HealthFab", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/1717406592Photo%20by%20%20-%202024-06-03T145215.721.png?updatedAt=1752328680880", url: "#" },
-  { name: "HealthFab", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/43sssss_583846cc-aaae-4dd4-8093-ae2031254476.png?updatedAt=1752328651719", url: "#" },
+  { name: "Explore Valley", type:"Official Media Partener", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.06%20PM%20(1).jpeg?updatedAt=1752427921284", url: "#" },
+  { name: "Just Assam Things", type:"Regional Buzz Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.16.13%20PM.jpeg?updatedAt=1752427921171", url: "#" },
+  { name: "NIT Silchar", type:"Tech Synergy Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.07%20PM%20(5).jpeg?updatedAt=1752427927157", url: "#" },
+  { name: "Silchar Live", type:"Outreach Media Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.07%20PM.jpeg?updatedAt=1752427927225", url: "#" },
+  { name: "Gplus", type:"Associate Media Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.06%20PM.jpeg?updatedAt=1752427925322", url: "#" },
+
+  { name: "AD MANDI", type:"Brochure Design Partner", logo: "https://admandi.in/wp-content/uploads/2024/12/Asset-2@500x.png", url: "#" },
+  { name: "Adons", type:"Social Media Post Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/official%20logo%20of%20AdOns%20(1).jpg?updatedAt=1752429174580", url: "#" },
+  { name: "bikecentersilchar", type:"Gear Garage Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.16.11%20PM.jpeg?updatedAt=1752427921245", url: "#" },
+  { name: "Korou Lab", type:"Visual Production Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.08%20PM.jpeg?updatedAt=1752427926840", url: "#" },
+  { name: "Agartala Smart City Limited", type:"Strategic Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.06%20PM%20(2).jpeg?updatedAt=1752427921248", url: "#" },
+  { name: "Qelica", type:"Oral Care Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.07%20PM%20(3).jpeg?updatedAt=1752427926761", url: "#" },
+  
+  { name: "Pratha", type:"Knowledge and strategy Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.22.07%20PM.jpeg?updatedAt=1752427921358", url: "#" },
+  { name: "Unnoti Classes", type:"Supporting Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.07%20PM%20(1).jpeg?updatedAt=1752427926752", url: "#" },
+  { name: "Leo Club of Greater Silchar", type:"Supporting Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.07%20PM%20(4).jpeg?updatedAt=1752427926747", url: "#" },
+  { name: "Adbark Threads", type:"Merchandise Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.16.12%20PM.jpeg?updatedAt=1752427921124", url: "#" },
+  { name: "Assam Startup", type:"Ecosystem Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.38.07%20PM%20(2).jpeg?updatedAt=1752427926839", url: "#" },
+
+
+  { name: "Upanjali", type:"PR and Communication Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.16.12%20PM%20(1).jpeg?updatedAt=1752427920975", url: "#" },
+  { name: "The Assam Tribune News", type:"Digital News Media Partner", logo: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Sponsors/WhatsApp%20Image%202025-07-13%20at%209.16.13%20PM%20(1).jpeg?updatedAt=1752427921273", url: "#" },
 ];
 
-const SponsorCard = ({ sponsor }: { sponsor: typeof sponsors[0] }) => {
+const sponsorAccents = [
+  "from-yellow-400 to-red-400",
+  "from-blue-400 to-cyan-400",
+  "from-pink-400 to-purple-400",
+  "from-green-400 to-lime-400",
+  "from-orange-400 to-yellow-500",
+  "from-indigo-500 to-blue-400",
+  "from-fuchsia-500 to-pink-400",
+  "from-emerald-400 to-teal-400",
+  "from-amber-500 to-orange-400",
+  "from-rose-400 to-pink-500",
+  "from-sky-400 to-blue-500",
+  "from-lime-400 to-green-500",
+  "from-violet-500 to-purple-400",
+  "from-red-400 to-amber-500",
+  "from-cyan-400 to-teal-500",
+  "from-purple-400 to-fuchsia-500",
+  "from-blue-400 to-indigo-500",
+  "from-orange-400 to-rose-400",
+  "from-teal-400 to-emerald-500",
+  "from-pink-400 to-red-500",
+];
+
+const SponsorCard = ({ sponsor, accentIndex }: { sponsor: typeof sponsors[0]; accentIndex: number }) => {
   const ref = React.useRef(null);
   const [visible, setVisible] = React.useState(false);
   React.useEffect(() => {
@@ -29,24 +70,26 @@ const SponsorCard = ({ sponsor }: { sponsor: typeof sponsors[0] }) => {
     }
     return () => observer.disconnect();
   }, []);
+  const accent = sponsorAccents[accentIndex % sponsorAccents.length];
   return (
     <div
       ref={ref}
-      className={`flex flex-col items-center text-center transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"} bg-[#232323] border border-red-500 rounded-xl shadow hover:shadow-lg md:hover:-translate-y-1 transition-all duration-300 p-4 md:p-6 relative w-full min-h-[300px]`}
-      style={{ maxWidth: 340 }}
+      className={`flex flex-col items-center text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} group w-full max-w-xs mx-auto bg-[#232323] rounded-2xl shadow-xl p-6`}
     >
-      <div className="w-full h-32 md:h-40 mb-4 rounded-lg overflow-hidden flex items-center justify-center bg-white">
-        <Image src={sponsor.logo} alt={sponsor.name} width={220} height={110} className="object-contain w-full h-full" />
+      <div className={`w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg relative bg-gradient-to-br ${accent} flex items-center justify-center`}>
+        <Image src={sponsor.logo} alt={sponsor.name} width={128} height={128} className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
       </div>
-      <span className="text-white font-bold text-lg md:text-xl mb-1">{sponsor.name}</span>
-      <span className="text-gray-400 text-xs md:text-sm mb-2">Proud Partner</span>
-      <span className="text-gray-300 text-sm md:text-base mb-3">Leading supporter of TEDx Assam University.</span>
+      <div className={`h-2 w-12 rounded-full mb-3 bg-gradient-to-r ${accent}`}></div>
+      <span className="text-white font-bold text-base md:text-xl mb-1 drop-shadow-lg">{sponsor.name}</span>
+      <span className="text-gray-400 text-xs md:text-sm mb-2">{sponsor.type}</span>
+      {/* Optionally add a description or link */}
       {sponsor.url !== "#" && (
         <a
           href={sponsor.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block mt-auto bg-red-600 text-white px-5 py-2 rounded-full font-semibold text-sm md:text-base hover:bg-red-700 transition-colors shadow"
+          className="inline-block mt-2 bg-red-600 text-white px-5 py-2 rounded-full font-semibold text-sm md:text-base hover:bg-red-700 transition-colors shadow"
         >
           Visit Website
         </a>
@@ -67,9 +110,9 @@ export default function Sponsors() {
             <h2 className="text-3xl md:text-4xl font-bold text-white">Our Sponsors</h2>
           </div>
           {/* Sponsors Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-14">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
             {sponsors.map((sponsor, i) => (
-              <SponsorCard key={i} sponsor={sponsor} />
+              <SponsorCard key={i} sponsor={sponsor} accentIndex={i} />
             ))}
           </div>
         </div>
@@ -99,7 +142,7 @@ export default function Sponsors() {
                 <li><a href="/about" className="hover:text-red-500 transition-colors">About</a></li>
                 <li><a href="/speakers" className="hover:text-red-500 transition-colors">Speakers</a></li>
                 <li><a href="/schedule" className="hover:text-red-500 transition-colors">Schedule</a></li>
-                <li><a href="/contact" className="hover:text-red-500 transition-colors">Contact</a></li>
+                <li><Link href="/contact" className="hover:text-red-500 transition-colors">Contact</Link></li>
                 <li><a href="/sponsors" className="hover:text-red-500 transition-colors">Sponsors</a></li>
               </ul>
             </div>

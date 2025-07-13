@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { Users, Award, Heart, Target, Eye, Globe, Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 
 const stats = [
   { number: "500+", label: "Attendees" },
@@ -169,7 +170,7 @@ const AboutPage = () => {
         <div className="max-w-3xl mx-auto text-center px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Be Part of the Movement</h2>
           <p className="text-xl text-red-100 mb-8">Join us in spreading ideas that matter. Whether you want to attend, volunteer, or partner with us, your journey starts here.</p>
-          <a href="/contact" className="inline-block bg-white text-red-600 px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl">Contact Us</a>
+          <Link href="/contact" className="inline-block bg-white text-red-600 px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl">Contact Us</Link>
         </div>
       </section>
 
@@ -190,7 +191,7 @@ const AboutPage = () => {
                 <li><a href="/about" className="hover:text-red-500 transition-colors">About</a></li>
                 <li><a href="/speakers" className="hover:text-red-500 transition-colors">Speakers</a></li>
                 <li><a href="/schedule" className="hover:text-red-500 transition-colors">Schedule</a></li>
-                <li><a href="/contact" className="hover:text-red-500 transition-colors">Contact</a></li>
+                <li><Link href="/contact" className="hover:text-red-500 transition-colors">Contact</Link></li>
               </ul>
             </div>
             <div>
