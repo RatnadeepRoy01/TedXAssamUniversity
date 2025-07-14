@@ -53,7 +53,9 @@ export default function Speakers() {
               <h3 className="text-2xl font-bold text-red-500 mb-4">TEDx Assam University</h3>
               <p className="text-gray-400 mb-4">Bringing ideas worth spreading to the heart of Northeast India.</p>
               <div className="flex space-x-4">
-                <Facebook className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
+               <a href="https://www.facebook.com/people/TEDx-Assam-University/61575100324423/#" target="_blank" rel="noopener noreferrer">
+                 <Facebook className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
+               </a>
                 <a href="https://www.instagram.com/tedx.assamuniversity" target="_blank" rel="noopener noreferrer">
                 <Instagram className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
               </a>

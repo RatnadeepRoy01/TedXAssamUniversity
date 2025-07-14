@@ -878,7 +878,9 @@ const TedxLanding: React.FC = () => {
               Bringing ideas worth spreading to the heart of Northeast India.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
+            <a href="https://www.facebook.com/people/TEDx-Assam-University/61575100324423/#" target="_blank" rel="noopener noreferrer">
+                <Facebook className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
+              </a>
               <a href="https://www.instagram.com/tedx.assamuniversity" target="_blank" rel="noopener noreferrer">
                 <Instagram className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
               </a>
