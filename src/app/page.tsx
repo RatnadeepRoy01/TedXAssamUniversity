@@ -808,7 +808,7 @@ const TedxLanding: React.FC = () => {
         <div className="mt-12 flex justify-center items-center space-x-8 text-red-100">
           <div className="flex items-center">
             <Calendar className="w-6 h-6 mr-2" />
-            <span>December 15, 2024</span>
+            <span>July 19, 2025</span>
           </div>
           <div className="flex items-center">
             <MapPin className="w-6 h-6 mr-2" />
@@ -880,8 +880,15 @@ const TedxLanding: React.FC = () => {
             <div className="flex space-x-4">
               <Facebook className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
               <Twitter className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
-              <Instagram className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
-              <Linkedin className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
+              <a href="https://www.instagram.com/tedx.assamuniversity" target="_blank" rel="noopener noreferrer">
+                <Instagram className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
+              </a>
+              <a href="https://www.linkedin.com/company/tedx-assam-university/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
+              </a>
+              <a href="https://youtube.com/@tedxassamuniversity?si=mm9PSgG2uj0AuONh" target="_blank" rel="noopener noreferrer">
+                <svg className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.228 3.5 12 3.5 12 3.5s-7.228 0-9.391.569A2.994 2.994 0 0 0 .502 6.186C0 8.36 0 12 0 12s0 3.64.502 5.814a2.994 2.994 0 0 0 2.107 2.117C4.772 20.5 12 20.5 12 20.5s7.228 0 9.391-.569a2.994 2.994 0 0 0 2.107-2.117C24 15.64 24 12 24 12s0-3.64-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
             </div>
           </div>
           <div>
@@ -904,11 +911,11 @@ const TedxLanding: React.FC = () => {
             <div className="space-y-2 text-gray-400">
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
-                <span>info@tedxassamuniversity.com</span>
+                <span>tedxassamuniversity@gmail.com</span>
               </div>
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2" />
-                <span>+91 98765 43210</span>
+                <span> 86384 24729</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="w-4 h-4 mr-2" />
@@ -922,7 +929,7 @@ const TedxLanding: React.FC = () => {
             onMouseEnter={() => setCursorVariant('hover')}
             onMouseLeave={() => setCursorVariant('default')}
           >
-            Designed with ❤️ by TEDx Assam University Team | © 2024 All rights reserved
+            Designed with ❤️ by TEDx Assam University Team | © 2025 All rights reserved
           </p>
           <p className="text-sm text-gray-500 mt-2"
             onMouseEnter={() => setCursorVariant('hover')}

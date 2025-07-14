@@ -9,7 +9,7 @@ export default function Speakers() {
       {/* Intro Section */}
       <section className="py-10 bg-[#232526] border-b border-gray-800 md:mt-0 mt-10">
         <div className="max-w-3xl mx-auto text-center px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Welcome to TEDx Assam University 2024</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Welcome to TEDx Assam University 2025</h2>
           <p className="text-lg text-gray-300 mb-2">Experience a day of inspiration, innovation, and connection as we bring together thought leaders, visionaries, and changemakers from across the region.</p>
         </div>
       </section>
@@ -71,14 +71,14 @@ export default function Speakers() {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
               <div className="space-y-2 text-gray-400">
-                <div className="flex items-center"><Mail className="w-4 h-4 mr-2" /><span>info@tedxassamuniversity.com</span></div>
-                <div className="flex items-center"><Phone className="w-4 h-4 mr-2" /><span>+91 98765 43210</span></div>
+                <div className="flex items-center"><Mail className="w-4 h-4 mr-2" /><span>tedxassamuniversity@gmail.com </span></div>
+                <div className="flex items-center"><Phone className="w-4 h-4 mr-2" /><span>+91 86384 24729</span></div>
                 <div className="flex items-center"><MapPin className="w-4 h-4 mr-2" /><span>Assam University, Silchar</span></div>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p className="text-gray-400">Designed with ❤️ by TEDx Assam University Team | © 2024 All rights reserved</p>
+            <p className="text-gray-400">Designed with ❤️ by TEDx Assam University Team | © 2025 All rights reserved</p>
             <p className="text-sm text-gray-500 mt-2">This independent TEDx event is operated under license from TED</p>
           </div>
         </div>

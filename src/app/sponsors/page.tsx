@@ -122,7 +122,7 @@ export default function Sponsors() {
         <div className="max-w-3xl mx-auto text-center px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Become a Sponsor</h2>
           <p className="text-xl text-red-100 mb-8">Partner with us to support ideas worth spreading and gain visibility among changemakers. Get in touch to learn more about sponsorship opportunities.</p>
-          <a href="mailto:info@tedxassamuniversity.com" className="inline-block bg-white text-red-600 px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl">Contact Us</a>
+          <a href="mailto:tedxassamuniversity@gmail.com " className="inline-block bg-white text-red-600 px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl">Contact Us</a>
         </div>
       </section>
       {/* Footer */}
@@ -149,14 +149,14 @@ export default function Sponsors() {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
               <div className="space-y-2 text-gray-400">
-                <div className="flex items-center"><Mail className="w-4 h-4 mr-2" /><span>info@tedxassamuniversity.com</span></div>
-                <div className="flex items-center"><Phone className="w-4 h-4 mr-2" /><span>+91 98765 43210</span></div>
+                <div className="flex items-center"><Mail className="w-4 h-4 mr-2" /><span>tedxassamuniversity@gmail.com </span></div>
+                <div className="flex items-center"><Phone className="w-4 h-4 mr-2" /><span>+91 86384 24729</span></div>
                 <div className="flex items-center"><MapPin className="w-4 h-4 mr-2" /><span>Assam University, Silchar</span></div>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p className="text-gray-400">Designed with ❤️ by TEDx Assam University Team | © 2024 All rights reserved</p>
+            <p className="text-gray-400">Designed with ❤️ by TEDx Assam University Team | © 2025 All rights reserved</p>
             <p className="text-sm text-gray-500 mt-2">This independent TEDx event is operated under license from TED</p>
           </div>
         </div>
