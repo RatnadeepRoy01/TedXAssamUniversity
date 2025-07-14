@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {  Calendar, MapPin,  Mail, Phone, Facebook, Twitter, Instagram, Linkedin,  Clock,  Plus, Minus } from 'lucide-react';
+import {  Calendar, MapPin,  Mail, Phone, Facebook, Instagram, Linkedin,  Clock,  Plus, Minus } from 'lucide-react';
 import HeroSection from './heroSection';
 import Image from 'next/image';
 import SpeakerPhotoGrid from './expandable-cards';
@@ -879,7 +879,6 @@ const TedxLanding: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <Facebook className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
-              <Twitter className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
               <a href="https://www.instagram.com/tedx.assamuniversity" target="_blank" rel="noopener noreferrer">
                 <Instagram className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
               </a>

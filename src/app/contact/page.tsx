@@ -7,9 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const SOCIALS = [
-  { name: "Instagram", url: "https://instagram.com/", icon: <Instagram className="w-7 h-7 text-red-500" /> },
-  { name: "LinkedIn", url: "https://linkedin.com/", icon: <Linkedin className="w-7 h-7 text-red-500" /> },
-  { name: "YouTube", url: "https://youtube.com/", icon: <Youtube className="w-7 h-7 text-red-500" /> },
+  { name: "Instagram", url: "https://www.instagram.com/tedx.assamuniversity", icon: <Instagram className="w-7 h-7 text-red-500" /> },
+  { name: "LinkedIn", url: "https://www.linkedin.com/company/tedx-assam-university/posts/?feedView=all", icon: <Linkedin className="w-7 h-7 text-red-500" /> },
+  { name: "YouTube", url: "https://youtube.com/@tedxassamuniversity?si=mm9PSgG2uj0AuONh", icon: <Youtube className="w-7 h-7 text-red-500" /> },
 ];
 
 export default function Contact() {
