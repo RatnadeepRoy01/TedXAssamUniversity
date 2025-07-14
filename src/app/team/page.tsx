@@ -51,12 +51,6 @@ const organizer = [
     accent: "from-blue-500 to-cyan-400",
   },
   {
-    name: "Manash Chakraborty",
-    position: "Strategic Partnerships & Sponsorship Lead",
-    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-13%20at%2010.07.36%20AM%20(2).jpeg?updatedAt=1752423556961",
-    accent: "from-yellow-500 to-orange-400",
-  },
-  {
     name: "Shakil Mallik",
     position: "Social Media Head",
     avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-13%20at%2010.07.37%20AM.jpeg?updatedAt=1752423557133",
@@ -67,6 +61,12 @@ const organizer = [
     position: "Team Lead PR",
     avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-13%20at%2010.07.37%20AM%20(1).jpeg?updatedAt=1752423556974",
     accent: "from-indigo-500 to-blue-400",
+  },
+  {
+    name: "Manash Chakraborty",
+    position: "Strategic Partnerships & Sponsorship Lead",
+    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-13%20at%2010.07.36%20AM%20(2).jpeg?updatedAt=1752423556961",
+    accent: "from-yellow-500 to-orange-400",
   },
   {
     name: "Avadhut Giri",
