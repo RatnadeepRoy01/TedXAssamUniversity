@@ -71,7 +71,7 @@ const organizer = [
   {
     name: "Avadhut Giri",
     position: "Tech Lead ",
-    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/Picsart_25-06-12_16-47-51-371.jpg?updatedAt=1752423557214",
+    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-14%20at%2010.08.48%20PM%20(1).jpeg?updatedAt=1752616537677",
     accent: "from-emerald-500 to-teal-400",
   },
   {

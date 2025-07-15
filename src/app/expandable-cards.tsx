@@ -224,7 +224,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.45%20PM.jpeg?updatedAt=1752330353283",
     bio: "Additional Secretary, Finance Department. Government of Tripura",
     about: "Akhinchan Sarkar is a senior Indian Administrative Service officer currently serving as Additional Secretary in the Finance Department of the Government of Tripura. With a distinguished career in public administration, he has contributed to the financial planning and governance of the state, ensuring transparency and efficiency in public finance.",
-    profileLink: "https://www.linkedin.com/in/akinchan-sarkar-a3826a1a2/",
+    profileLink: "https://www.linkedin.com",
   },
   {
     id: 2,
@@ -232,7 +232,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.46%20PM%20(1).jpeg?updatedAt=1752330353257",
     bio: "General Manager, Rosekandy Tea Estate",
     about: "I B Ubhadia is the General Manager of Rosekandy Tea Estate, a renowned tea garden in Assam. With years of experience in tea estate management, he oversees the production and quality of premium teas, contributing to the region’s reputation for excellence in tea cultivation and export.",
-    profileLink: "https://linkedin.com/in/ranjan-deka",
+    profileLink: "https://linkedin.com",
   },
   {
     id: 3,
@@ -240,7 +240,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.45%20PM%20(1).jpeg?updatedAt=1752330351849",
     bio: "Assamese Actor and Singer",
     about: "Arghadeep Baruah is a celebrated Assamese actor and singer, known for his versatile performances in Assamese cinema and music. He has starred in numerous acclaimed films and is recognized for his contributions to the cultural landscape of Assam through both acting and singing.",
-    profileLink: "https://linkedin.com/in/ananya-baruah",
+    profileLink: "https://linkedin.com",
   },
   {
     id: 4,
@@ -248,7 +248,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.46%20PM.jpeg?updatedAt=1752330351797",
     bio: "Associate Professor, Department of Hindi, Zakir Husain Delhi College, University of Delhi",
     about: "Dr. Vijendra Singh Chauhan is an Associate Professor in the Department of Hindi at Zakir Husain Delhi College, University of Delhi. With over 15 years of teaching experience, he specializes in media, literary history, and gender studies, and is a published author and public speaker.",
-    profileLink: "https://linkedin.com/in/bhaskar-mahanta",
+    profileLink: "https://linkedin.com/in",
   },
   {
     id: 5,
@@ -256,7 +256,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.38%20PM.jpeg?updatedAt=1752330345395",
     bio: "Assistant Professor, NIT Mizoram",
     about: "Dr. Pragati Singh is an Assistant Professor at the National Institute of Technology (NIT) Mizoram. She is dedicated to advancing research and education in her field, mentoring students, and contributing to academic excellence. Dr. Singh is recognized for her commitment to fostering innovation and critical thinking among her students.",
-    profileLink: "https://linkedin.com/in/kavita-das",
+    profileLink: "https://linkedin.com",
   },
   {
     id: 6,
@@ -264,7 +264,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.39%20PM.jpeg?updatedAt=1752330345493",
     bio: "Senior Political Strategist",
     about: "Kanisqa Agarwal is a senior political strategist with extensive experience in policy analysis and campaign management. She has worked with various political organizations to develop effective strategies and drive impactful campaigns. Kanisqa is known for her analytical skills and her ability to navigate complex political landscapes.",
-    profileLink: "https://linkedin.com/in/rohit-gogoi",
+    profileLink: "https://linkedin.com",
   },
   {
     id: 7,
@@ -272,7 +272,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.40%20PM.jpeg?updatedAt=1752330345480",
     bio: "Compliance Leader",
     about: "Sagar Tejwani is a compliance leader with expertise in regulatory affairs and risk management. He has worked with organizations to ensure adherence to industry standards and legal requirements. Sagar is known for his attention to detail and commitment to ethical business practices. His leadership helps organizations navigate complex compliance landscapes and maintain operational integrity.",
-    profileLink: "https://linkedin.com/in/meera-kalita",
+    profileLink: "https://linkedin.com",
   },
   {
     id: 8,
@@ -280,7 +280,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.42%20PM.jpeg?updatedAt=1752330345440",
     bio: "Autonomous Driver",
     about: "Sumit Dey is an autonomous vehicle driver and technology enthusiast. He is passionate about the future of mobility and the integration of AI in transportation. Sumit advocates for safe and efficient autonomous driving solutions and is dedicated to promoting innovation in the automotive sector.",
-    profileLink: "https://linkedin.com/in/arjun-bora",
+    profileLink: "https://linkedin.com",
   },
   {
     id: 9,
@@ -288,7 +288,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.43%20PM.jpeg?updatedAt=1752330345482",
     bio: "Motivational Speaker",
     about: "Saiyam Mazumdar is a motivational speaker known for sharing his story of courage, clarity, and commitment. He inspires audiences with his journey and insights on overcoming challenges. Saiyam is dedicated to empowering others to pursue their goals with determination and resilience.",
-    profileLink: "https://linkedin.com/in/sunita-hazarika",
+    profileLink: "https://linkedin.com",
   },
   {
     id: 10,
@@ -296,7 +296,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.43%20PM%20(1).jpeg?updatedAt=1752330345400",
     bio: "General Physician",
     about: "Dr. Nilima Roy Chowdhury is a respected general physician with years of experience in patient care. She is committed to providing comprehensive healthcare and improving community well-being. Dr. Chowdhury is known for her compassionate approach and dedication to her patients.",
-    profileLink: "https://linkedin.com/in/sunita-hazarika",
+    profileLink: "https://linkedin.com",
   },
   {
     id: 11,
@@ -304,7 +304,7 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.44%20PM.jpeg?updatedAt=1752330351781",
     bio: "Assistant Professor, ICFAI University Agartala",
     about: "Partha Pratim Saikia is an Assistant Professor at ICFAI University, Agartala. He is passionate about teaching and research, contributing to the academic growth of his students. Partha is recognized for his innovative teaching methods and commitment to higher education.",
-    profileLink: "https://linkedin.com/in/sunita-hazarika",
+    profileLink: "https://linkedin.com",
   },
   {
     id: 12,
@@ -312,7 +312,16 @@ const speakers = [
     image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-10%20at%2010.24.44%20PM%20(1).jpeg?updatedAt=1752330345489",
     bio: "Lieutenant Colonel, Indian Army",
     about: "Lt Col K Sachin Singha is a distinguished officer in the Indian Army, serving as a Lieutenant Colonel. He has demonstrated exemplary leadership and dedication to national service. Lt Col Singha is committed to upholding the values of the armed forces and inspiring the next generation of leaders.",
-    profileLink: "https://linkedin.com/in/sunita-hazarika",
+    profileLink: "https://linkedin.com",
+  },
+  {
+    id: 13,
+    name: "Tanmoy Acharjee",
+    image: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Speakers/WhatsApp%20Image%202025-07-15%20at%2011.32.01%20PM.jpeg?updatedAt=1752616510027",
+    bio: "Doctoral Researcher, Marketing & Communication Expert, Digital Strategist, Co-Founder Ad Mandi R & AS",
+    about: "Tanmoy Acharjee is a Doctoral Researcher and expert in marketing, communication, and digital strategy. As Co-Founder of Ad Mandi R & AS, he specializes in innovative marketing solutions and digital transformation.",
+    profileLink: "https://linkedin.com",
   },
 
 ]
+
