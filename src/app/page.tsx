@@ -185,11 +185,9 @@ const TedxLanding: React.FC = () => {
 
   const faqs = [
     { question: 'What is TEDx?', answer: 'TEDx is a program of local, self-organized events that bring people together to share a TED-like experience. Our event is called TEDx Assam University, where x = independently organized TED event.' },
-    { question: 'How much do tickets cost?', answer: 'Tickets are priced at ₹500 for students and ₹1000 for professionals. Early bird discounts are available!' },
     { question: 'What should I bring?', answer: 'Just bring yourself and an open mind! We\'ll provide all materials, refreshments, and a memorable experience.' },
     { question: 'Is parking available?', answer: 'Yes, free parking is available on campus. We also have shuttle services from the main gate.' },
-    { question: 'Can I get a certificate?', answer: 'Yes, all attendees will receive a digital certificate of participation.' },
-    { question: 'What if I can\'t attend physically?', answer: 'We\'ll be live streaming the event. Registration links will be shared closer to the date.' }
+    { question: 'Can I get a certificate?', answer: 'Yes, all attendees will receive a Physical certificate of participation.' },
   ];
 
   useEffect(() => {
