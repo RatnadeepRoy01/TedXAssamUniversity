@@ -79,14 +79,7 @@ const organizer = [
     position: "Tech Co-Lead",
     avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-14%20at%2012.31.46%20AM.jpeg?updatedAt=1752433416520",
     accent: "from-purple-500 to-indigo-400",
-  },
-  {
-    name: "Rishita Bhattacharjee ",
-    position: "Hospitality coordinator",
-    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-17%20at%209.18.42%20PM.jpeg?updatedAt=1752768696292",
-    accent: "from-orange-500 to-yellow-400",
-  },
-   
+  }, 
 ]
 
 const TeamMemberCard = ({ member }: { member: typeof teamMembers[0]; index: number }) => {

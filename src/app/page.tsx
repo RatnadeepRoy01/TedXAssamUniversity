@@ -788,7 +788,7 @@ const TedxLanding: React.FC = () => {
         <h2 className="text-4xl md:text-6xl font-bold mb-8"
           onMouseEnter={() => setCursorVariant('hover')}
           onMouseLeave={() => setCursorVariant('default')}
-        >Get Your Tickets Now</h2>
+        >Registration</h2>
         <p className="text-xl md:text-2xl mb-12 text-red-100 max-w-2xl mx-auto"
           onMouseEnter={() => setCursorVariant('hover')}
           onMouseLeave={() => setCursorVariant('default')}
@@ -899,7 +899,7 @@ const TedxLanding: React.FC = () => {
               <li><a href="#" className="hover:text-red-500 transition-colors">About</a></li>
               <li><a href="#" className="hover:text-red-500 transition-colors">Speakers</a></li>
               <li><a href="#" className="hover:text-red-500 transition-colors">Schedule</a></li>
-              <li><a href="#" className="hover:text-red-500 transition-colors">Tickets</a></li>
+              <li><a href="#" className="hover:text-red-500 transition-colors">Registration</a></li>
             </ul>
           </div>
           <div>
