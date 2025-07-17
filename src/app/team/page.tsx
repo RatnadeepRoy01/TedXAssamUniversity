@@ -60,13 +60,13 @@ const organizer = [
     name: "Taanish Das Kashyap",
     position: "Team Lead PR",
     avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-13%20at%2010.07.37%20AM%20(1).jpeg?updatedAt=1752423556974",
-    accent: "from-indigo-500 to-blue-400",
+    accent: "from-green-500 to-lime-400",
   },
-  {
-    name: "Manash Chakraborty",
-    position: "Strategic Partnerships & Sponsorship Lead",
-    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-13%20at%2010.07.36%20AM%20(2).jpeg?updatedAt=1752423556961",
-    accent: "from-yellow-500 to-orange-400",
+   {
+    name: "Debraj Chakrabarty",
+    position: "Co-leader Team PR",
+    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-18%20at%201.53.36%20AM%20(1).jpeg?updatedAt=1752783922203",
+    accent: "from-fuchsia-600 to-orange-300", 
   },
   {
     name: "Avadhut Giri",
@@ -79,7 +79,20 @@ const organizer = [
     position: "Tech Co-Lead",
     avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-14%20at%2012.31.46%20AM.jpeg?updatedAt=1752433416520",
     accent: "from-purple-500 to-indigo-400",
+  },
+   {
+    name: "Manash Chakraborty",
+    position: "Strategic Partnerships & Sponsorship Lead",
+    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-13%20at%2010.07.36%20AM%20(2).jpeg?updatedAt=1752423556961",
+    accent: "from-yellow-500 to-orange-400",
   }, 
+  {
+    name: "Bibhu Debnath",
+    position: "Memento Designer",
+    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-18%20at%201.39.33%20AM%20(1).jpeg?updatedAt=1752783779307",
+    accent: "from-indigo-500 to-blue-400",
+  },
+ 
 ]
 
 const TeamMemberCard = ({ member }: { member: typeof teamMembers[0]; index: number }) => {

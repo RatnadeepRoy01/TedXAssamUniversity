@@ -801,7 +801,7 @@ const TedxLanding: React.FC = () => {
           rel="noopener noreferrer"
           className="bg-white text-red-600 px-12 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl inline-block"
         >
-          Book Tickets
+            Registration
         </a>
         <div className="mt-12 flex justify-center items-center space-x-8 text-red-100">
           <div className="flex items-center">
