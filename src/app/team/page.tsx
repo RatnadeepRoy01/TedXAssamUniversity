@@ -92,6 +92,12 @@ const organizer = [
     avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-18%20at%201.39.33%20AM%20(1).jpeg?updatedAt=1752783779307",
     accent: "from-indigo-500 to-blue-400",
   },
+  {
+    name: "Rishita Bhattacharjee",
+    position: "Hospitality coordinator",
+    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-18%20at%2011.57.14%20PM.jpeg?updatedAt=1752863921154",
+    accent: "from-indigo-200 to-blue-600",
+  },
  
 ]
 
