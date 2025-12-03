@@ -69,9 +69,9 @@ const organizer = [
     accent: "from-fuchsia-600 to-orange-300", 
   },
   {
-    name: "Avadhut Giri",
+    name: "Jit Garani",
     position: "Tech Lead ",
-    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-07-14%20at%2010.08.48%20PM%20(1).jpeg?updatedAt=1752616537677",
+    avatar: "https://ik.imagekit.io/ptcg0bvf3/TEDx/Teams/WhatsApp%20Image%202025-12-03%20at%2011.58.30%20PM.jpeg",
     accent: "from-emerald-500 to-teal-400",
   },
   {
